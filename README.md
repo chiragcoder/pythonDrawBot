@@ -11,3 +11,5 @@ Usage : py DrawingBot.py <thing to draw>
 
 Configure the x, y cordinates according to your drawing window
 Make sure command terminal dosent overlap drawing window
+
+Demo : https://youtu.be/gTLoRJrpRMU
