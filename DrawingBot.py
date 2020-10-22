@@ -111,19 +111,23 @@ scaleMultiplier = max_scale_x if max_scale_x < max_scale_y else max_scale_y
 
 print('scaleMultiplier',scaleMultiplier)
 
+#delay in seconds between clicks, default is 0.1 sec
+#Warning, difficult to escape
+pyautogui.PAUSE = 0.005
+
 count = 0
 #For loop to extract and print all pixels
 for y in range(converted.height):
   #print('')
 
-  for x in range(converted.width):
-    #getting pixel value using getpixel() method
-    #print(x,'|',y,'|',converted.getpixel((x,y)), end='\t', sep='')
-    if(converted.getpixel((x,y)) == 0):
-      count = count + 1
-      x_cordinate = x*scaleMultiplier + x_padding
-      y_cordinate = y*scaleMultiplier + y_padding
+    for x in range(converted.width):
+        #getting pixel value using getpixel() method
+        #print(x,'|',y,'|',converted.getpixel((x,y)), end='\t', sep='')
+        if(converted.getpixel((x,y)) == 0):
+            count = count + 1
+            x_cordinate = x*scaleMultiplier + x_padding
+            y_cordinate = y*scaleMultiplier + y_padding
 
-      #To increase speed, printing every 4th pixel
-      if(count%4 == 0):
-        pyautogui.click(x_cordinate, y_cordinate)
+            #To increase speed, printing every nth pixel
+            if(count%4 == 0):
+                pyautogui.click(x_cordinate, y_cordinate)
