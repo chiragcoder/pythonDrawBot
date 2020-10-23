@@ -99,13 +99,19 @@ print(converted.height)
 #Drawing starts
 print('Drawing starts')
 
+#Drawing window cordinates, top left and bottom right
+x1 = 350
+y1 = 180
+x2 = 1370
+y2 = 940
+
 #window to Draw in drawize : x -> 637 to 1280,  y -> 135 to 555
-x_padding = 637
-y_padding = 135
+x_padding = x1
+y_padding = y1
 
 #so that drawing dosent go out of window
-max_scale_x = int(643/converted.width)
-max_scale_y = int(420/converted.height)
+max_scale_x = (x2 - x1)/converted.width
+max_scale_y = (y2 - y1)/converted.height
 
 scaleMultiplier = max_scale_x if max_scale_x < max_scale_y else max_scale_y
 
@@ -114,6 +120,7 @@ print('scaleMultiplier',scaleMultiplier)
 #delay in seconds between clicks, default is 0.1 sec
 #Warning, difficult to escape
 pyautogui.PAUSE = 0.005
+#pyautogui.PAUSE = 0
 
 count = 0
 #For loop to extract and print all pixels
